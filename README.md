@@ -1,73 +1,113 @@
-# React + TypeScript + Vite
+📅 Calendar View Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project implements an interactive Calendar View built with React, TypeScript, Vite, TailwindCSS, and Storybook — based on the provided assignment specification.
 
-Currently, two official plugins are available:
+--------------------------------------------------------------------------------
+🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+✅ Month View
+- Displays a full monthly grid (7x6 layout)
+- Highlights today’s date
+- Shows events as color-coded tags
+- +More option for multiple events on a day
 
-## React Compiler
+✅ Week View
+- Displays 7 days with vertical hourly slots (00:00–23:00)
+- Scrollable layout
+- Events positioned by start & end time
+- Click any time slot to add new events
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+✅ Event Management
+- Add, edit, and delete events via a modal form
+- Select event color and time range
+- Validation for title and time conflicts
+- Real-time update on save/delete
 
-## Expanding the ESLint configuration
+✅ Calendar Navigation
+- Next, Previous, and Today buttons
+- Toggle between Month and Week views
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+✅ Storybook Integration
+- Visualizes multiple UI states:
+  - Default (with events)
+  - Empty Calendar
+  - Week View
+  - Many Events
+  - Interactive Demo (add/edit/delete live)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+--------------------------------------------------------------------------------
+🛠️ Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Frontend Framework: React + TypeScript (Vite)
+Styling: Tailwind CSS
+Date Utilities: Day.js
+State Management: Zustand
+Animation: Framer Motion
+Component Testing: Storybook
+Build Tool: Vite
+Deployment (Optional): Vercel / Chromatic
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+--------------------------------------------------------------------------------
+⚙️ Installation & Setup
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1️⃣ Clone the repository
+    git clone https://github.com/your-username/calendar-view.git
+    cd calendar-view
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2️⃣ Install dependencies
+    npm install
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3️⃣ Start development server
+    npm run dev
+    → Open http://localhost:5173
+
+4️⃣ Run Storybook
+    npm run storybook
+    → Open http://localhost:6006
+
+--------------------------------------------------------------------------------
+🧱 Component Overview
+
+CalendarView - Main wrapper, handles month/week switch
+MonthView - Monthly grid with events
+WeekView - Weekly time-based layout
+EventModal - Add/Edit/Delete events
+useCalendar Hook - Manages current date and view state
+useEventManager Hook - Handles all event CRUD operations
+Modal Primitive - Generic reusable modal component
+
+--------------------------------------------------------------------------------
+🧪 Storybook Scenarios
+
+Default - Standard calendar view with events
+Empty - Calendar without events
+Week View - Switch view to weekly layout
+Many Events - Stress test with 20+ events
+Interactive - Add/Edit/Delete in real-time
+
+--------------------------------------------------------------------------------
+🧰 Deployment (Optional)
+
+Option 1 — Deploy on Vercel
+    npm run build
+    → Deploy dist folder
+
+Option 2 — Deploy Storybook on Chromatic
+    npm install chromatic
+    npx chromatic --project-token=<your-token>
+
+--------------------------------------------------------------------------------
+👨‍💻 Author
+
+Saurabh Yadav
+2nd Year MCA | NIT Jamshedpur
+🎯 Interests: Cybersecurity, AI/ML, and Full Stack Development
+
+--------------------------------------------------------------------------------
+📸 Preview
+
+Month View: preview/monthview.png
+Week View: preview/weekview.png
+
+--------------------------------------------------------------------------------
+This project follows modern React component architecture, clean code practices, and modular design to meet all assignment expectations.
