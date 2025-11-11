@@ -43,19 +43,15 @@ export default meta;
 type Story = StoryObj<typeof CalendarView>;
 
 // Helper wrapper for interactive states
-const Wrapper = ({ initialEvents = sampleEvents }: { initialEvents?: CalendarEvent[] }) => {
-  const [events, setEvents] = useState<CalendarEvent[]>(initialEvents);
-  const handleAdd = (event: CalendarEvent) => setEvents((prev) => [...prev, event]);
-  const handleUpdate = (id: string, updates: Partial<CalendarEvent>) =>
-    setEvents((prev) => prev.map((e) => (e.id === id ? { ...e, ...updates } : e)));
-  const handleDelete = (id: string) => setEvents((prev) => prev.filter((e) => e.id !== id));
-
+// Helper wrapper for interactive states
+const Wrapper = () => {
   return (
     <div className="min-h-screen bg-neutral-50 p-6">
       <CalendarView />
     </div>
   );
 };
+
 
 // 1️⃣ Default Story - current month with sample events
 export const Default: Story = {
